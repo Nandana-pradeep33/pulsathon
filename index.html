@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<title>Document</title>
+</head>
+<body>
+    <nav class="bg-gray-800">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                
+                <!-- Logo at the left -->
+                <div class="flex items-center">
+                    <img class="h-8 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+                </div>
+
+                <!-- Links centered -->
+                <div class="hidden sm:block flex-1">
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Home</a>
+                        <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
+                        <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Events</a>
+                        <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button on the left -->
+                <div class="absolute inset-y-0 right-0 flex items-center sm:hidden">
+                    <button id="menu-toggle" type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg id="menu-open-icon" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                        <svg id="menu-close-icon" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state -->
+        <div class="sm:hidden hidden" id="mobile-menu">
+            <div class="space-y-1 px-2 pb-3 pt-2">
+                <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Dashboard</a>
+                <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
+                <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+                <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <div class="bg-gray-200 lg:h-[600px] flex flex-col justify-center items-center pb-3">
+            <h2 class="py-20 text-center">Heading</h2>
+            
+            <!-- Center the countdown block -->
+            <div class="grid auto-cols-max grid-flow-col gap-5 text-center mx-auto">
+                <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
+                    <span class="countdown font-mono text-3xl lg:text-5xl">
+                        <span id="days"></span>
+                    </span>
+                    days
+                </div>
+                <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
+                    <span class="countdown font-mono text-3xl lg:text-5xl">
+                        <span id="hours"></span>
+                    </span>
+                    hours
+                </div>
+                <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
+                    <span class="countdown font-mono text-3xl lg:text-5xl">
+                        <span id="minutes"></span>
+                    </span>
+                    min
+                </div>
+                <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
+                    <span class="countdown font-mono text-3xl lg:text-5xl">
+                        <span id="seconds"></span>
+                    </span>
+                    sec
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section class="bg-gray-100 py-8">
+        <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-4">
+            
+            <!-- Right side on small screens, left side on large screens (text) -->
+            <div class="order-2 lg:order-1 mr-2">
+                <h1 class="text-2xl font-bold mb-4 ">What is Pulsathon?</h1>
+                <p class="text-gray-700 mb-4">This is the paragraph text that describes your content. It will be placed on the right side on large screens and above the image on small screens.</p>
+            </div>
+            
+            <!-- Left side on small screens, right side on large screens (image) -->
+            <div class="order-1 lg:order-2 mt-4 mr-2">
+                <img src="https://via.placeholder.com/400" alt="Placeholder Image" class="w-1/2 mx-auto lg:pl-5 rounded">
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="dark:bg-gray-800 h-screen mt-5">
+            <div class="w-full max-w-3xl px-2 mx-auto py-10 dark:bg-transparent dark:text-gray-200">
+                <h3 class="mt-3 text-xl font-bold text-gray-800 md:text-2xl dark:text-gray-100">
+                    Frequently Asked Questions
+                </h3>
+                <div class="grid max-w-5xl mt-6 divide-y divide-gray-200 dark:divide-gray-700"> <!-- Removed mx-auto -->
+                    <div class="py-3"> <!-- Reduced padding -->
+                        <details class="group">
+                            <summary class="flex items-center justify-between font-medium list-none cursor-pointer text-left"> <!-- Align to left -->
+                                <span>Is TechSupportPro free to use?</span>
+                                <span class="transition group-open:rotate-180">
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                        width="24" class="dark:stroke-gray-400">
+                                        <path d="M6 9l6 6 6-6"></path>
+                                    </svg>
+                                </span>
+                            </summary>
+                            <p class="mt-2 text-gray-600 group-open:animate-fadeIn dark:text-gray-300"> <!-- Reduced margin -->
+                                Yes! You can access our basic support services for free. However, we also offer premium plans
+                                with additional features.
+                            </p>
+                        </details>
+                    </div>
+    
+                    <div class="py-3">
+                        <details class="group">
+                            <summary class="flex items-center justify-between font-medium list-none cursor-pointer text-left">
+                                <span>Does TechSupportPro have a community forum?</span>
+                                <span class="transition group-open:rotate-180">
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                        width="24" class="dark:stroke-gray-400">
+                                        <path d="M6 9l6 6 6-6"></path>
+                                    </svg>
+                                </span>
+                            </summary>
+                            <p class="mt-2 text-gray-600 group-open:animate-fadeIn dark:text-gray-300">
+                                Absolutely! Our community forum allows users to ask questions, share solutions, and collaborate
+                                on various tech issues.
+                                <a href="{{ route('forum.home') }}">TechSupportPro - Forum</a>
+                            </p>
+                        </details>
+                    </div>
+    
+                    <div class="py-3">
+                        <details class="group">
+                            <summary class="flex items-center justify-between font-medium list-none cursor-pointer text-left">
+                                <span>What kind of support services does TechSupportPro provide?</span>
+                                <span class="transition group-open:rotate-180">
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                        width="24" class="dark:stroke-gray-400">
+                                        <path d="M6 9l6 6 6-6"></path>
+                                    </svg>
+                                </span>
+                            </summary>
+                            <p class="mt-2 text-gray-600 group-open:animate-fadeIn dark:text-gray-300">
+                                We offer a wide range of services, including tech troubleshooting, software installations,
+                                network setup assistance, and device optimization. Our support covers both home users and
+                                businesses.
+                            </p>
+                        </details>
+                    </div>
+    
+                    <div class="py-3">
+                        <details class="group">
+                            <summary class="flex items-center justify-between font-medium list-none cursor-pointer text-left">
+                                <span>How can I save my support tickets for future reference?</span>
+                                <span class="transition group-open:rotate-180">
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                        width="24" class="dark:stroke-gray-400">
+                                        <path d="M6 9l6 6 6-6"></path>
+                                    </svg>
+                                </span>
+                            </summary>
+                            <p class="mt-2 text-gray-600 group-open:animate-fadeIn dark:text-gray-300">
+                                After logging into your account, you can view and save your support tickets under the "My
+                                Tickets" section of your dashboard.
+                            </p>
+                        </details>
+                    </div>
+    
+                    <div class="py-3">
+                        <details class="group">
+                            <summary class="flex items-center justify-between font-medium list-none cursor-pointer text-left">
+                                <span>How do I get in touch with TechSupportPro for urgent assistance?</span>
+                                <span class="transition group-open:rotate-180">
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                        width="24" class="dark:stroke-gray-400">
+                                        <path d="M6 9l6 6 6-6"></path>
+                                    </svg>
+                                </span>
+                            </summary>
+                            <p class="mt-2 text-gray-600 group-open:animate-fadeIn dark:text-gray-300">
+                                You can reach us through our 24/7 live chat or call our support hotline for urgent technical
+                                assistance.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const menuOpenIcon = document.getElementById("menu-open-icon");
+        const menuCloseIcon = document.getElementById("menu-close-icon");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuToggle.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+            menuOpenIcon.classList.toggle("hidden");
+            menuCloseIcon.classList.toggle("hidden");
+        });
+   
+        // Countdown date target (example: 5 days from now)
+        var countdownDate = new Date().getTime() + (5 * 24 * 60 * 60 * 1000);
+    
+        var countdownFunction = setInterval(function() {
+            // Get current time
+            var now = new Date().getTime();
+    
+            // Find the time remaining
+            var timeRemaining = countdownDate - now;
+    
+            // Time calculations
+            var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+    
+            // Display the results in the respective elements
+            document.getElementById('days').innerHTML = days;
+            document.getElementById('hours').innerHTML = hours;
+            document.getElementById('minutes').innerHTML = minutes;
+            document.getElementById('seconds').innerHTML = seconds;
+    
+            // If countdown is finished
+            if (timeRemaining < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById('days').innerHTML = '0';
+                document.getElementById('hours').innerHTML = '0';
+                document.getElementById('minutes').innerHTML = '0';
+                document.getElementById('seconds').innerHTML = '0';
+            }
+        }, 1000);  // Update every 1 second
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+</body>
+</html>
